@@ -483,8 +483,8 @@ function humandate($timestamp, $lan = array()) {
 		'minute_ago'=>'分钟前',
 		'second_ago'=>'秒前',
 	);
-	if($seconds > 31536000) {
-		return date('Y-n-j', $timestamp);
+	if($seconds > 59) {
+		return date('Y-m-d H:i:s', $timestamp);
 	} elseif($seconds > 2592000) {
 		return floor($seconds / 2592000).$lan['month_ago'];
 	} elseif($seconds > 86400) {
