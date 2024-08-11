@@ -102,25 +102,25 @@ function plugin_init()
         $plugins = plugin_list_sort($plugins, "installed");
         $plugins = plugin_list_sort($plugins, "enable");
     }
+}
 
-    //二维数组排序 TRUE FALSE
-    function plugin_list_sort($arrlist, $col, $asc = FALSE)
-    {
-        $colarr = $arr = array();
-        foreach ($arrlist as $k => $v) {
-            $colarr[$k] = $v[$col];
-        }
-        if ($asc == TRUE) {
-            asort($colarr);
-        } else {
-            arsort($colarr);
-        }
-        reset($colarr);
-        foreach ($colarr as $k => $v) {
-            $arr[$k] = $arrlist[$k];
-        }
-        return $arr;
+//二维数组排序 TRUE FALSE
+function plugin_list_sort($arrlist, $col, $asc = FALSE)
+{
+    $colarr = $arr = array();
+    foreach ($arrlist as $k => $v) {
+        $colarr[$k] = $v[$col];
     }
+    if ($asc == TRUE) {
+        asort($colarr);
+    } else {
+        arsort($colarr);
+    }
+    reset($colarr);
+    foreach ($colarr as $k => $v) {
+        $arr[$k] = $arrlist[$k];
+    }
+    return $arr;
 }
 
 // 插件依赖检测，返回依赖的插件列表，如果返回为空则表示不依赖
